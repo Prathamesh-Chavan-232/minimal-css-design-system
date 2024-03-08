@@ -1,0 +1,86 @@
+/* Minimal CSS Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Fix Image Sizing */
+img,
+svg,
+video {
+    max-width: 100%;
+    display: block;
+}
+
+/* Smooth Scrolling */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Content Styling */
+
+/* Color Scheme */
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: hsl(314, 58%, 7%);
+        --background: hsl(315, 57%, 97%);
+        --primary: hsl(314, 58%, 52%);
+        --secondary: hsl(76, 58%, 72%);
+        --accent: hsl(121, 58%, 62%);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: hsl(314, 60%, 93%);
+        --background: hsl(313, 60%, 3%);
+        --primary: hsl(314, 58%, 48%);
+        --secondary: hsl(76, 58%, 28%);
+        --accent: hsl(121, 58%, 38%);
+    }
+}
+
+/* Text & Fonts */
+body {
+    font-size: 1.25rem;
+    font-family: system-ui;
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+}
+
+/* Light & Dark theme based on system prefrences */
+html {
+    color-scheme: light dark;
+}
+
+/* Content Wrapper */
+
+.content-wrapper {
+    width: min(130ch, 100% - 1rem);
+    margin-inline: auto;
+}
+
+.flow> :where(:not(:first-child)) {
+    margin-top: 1em;
+}
